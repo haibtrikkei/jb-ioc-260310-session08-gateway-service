@@ -1,0 +1,14 @@
+
+services:
+  gateway-service:
+    image: ghcr.io/haibtrikkei/session08-api-gateway:${IMAGE_TAG:-latest}
+    container_name: api-gateway-service
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    networks:
+      - session08-network
+
+networks:
+  session08-network:
+    driver: bridge
